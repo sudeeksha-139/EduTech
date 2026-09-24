@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102a43">
+    <title>EduSupport | Student support, beautifully organized</title>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231f7a78'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e7a33d'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <section id="loginView" class="login-screen">
+        <div class="login-orbit login-orbit-one"></div>
+        <div class="login-orbit login-orbit-two"></div>
+        <div class="login-panel login-brand-panel">
+            <div class="brand-lockup brand-lockup-light">
+                <span class="brand-symbol"><i class="bi bi-life-preserver"></i></span>
+                <span><strong>EduSupport</strong><small>Student support operations</small></span>
+            </div>
+            <div class="brand-message">
+                <span class="eyebrow eyebrow-light">One calm place for every question</span>
+                <h1>Your questions.<br><em>Our support.</em></h1>
+                <p>From fee receipts to certificates, keep every request moving with clarity, ownership, and care.</p>
+            </div>
+            <div class="brand-proof"><span><i class="bi bi-check2-circle"></i> Clear ownership</span><span><i
+                        class="bi bi-clock-history"></i> SLA-aware support</span></div>
+        </div>
+        <div class="login-panel login-form-panel">
+            <div class="login-card">
+                <div class="mobile-brand brand-lockup">
+                    <span class="brand-symbol"><i class="bi bi-life-preserver"></i></span>
+                    <span><strong>EduSupport</strong><small>Student support operations</small></span>
+                </div>
+                <span class="eyebrow">Welcome back</span>
+                <h2>Sign in to your support desk</h2>
+                <p class="login-copy">Pick up where you left off and keep your requests moving.</p>
+                <form id="loginForm" novalidate>
+                    <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
+                    <label class="field-label" for="loginEmail">Institutional email</label>
+                    <div class="input-shell"><i class="bi bi-envelope"></i><input id="loginEmail" type="email"
+                            autocomplete="username" placeholder="you@edusupport.com" required></div>
+                    <label class="field-label" for="loginPassword">Password</label>
+                    <div class="input-shell"><i class="bi bi-lock"></i><input id="loginPassword" type="password"
+                            autocomplete="current-password" placeholder="Enter your password" required><button
+                            type="button" class="password-toggle" id="passwordToggle" aria-label="Show password"><i
+                                class="bi bi-eye"></i></button></div>
+                    <button class="btn btn-brand btn-lg w-100 login-submit" id="loginSubmit" type="submit"><span
+                            class="button-label">Sign in</span><span class="spinner-border spinner-border-sm d-none"
+                            aria-hidden="true"></span></button>
+                </form>
+                <p class="version-note"><i class="bi bi-shield-check"></i> Secure institutional access</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="appView" class="app-layout d-none">
+        <aside id="sidebar" class="app-sidebar">
+            <div class="sidebar-top">
+                <a class="brand-lockup sidebar-brand" href="#dashboard" data-route="dashboard"
+                    aria-label="EduSupport dashboard"><span class="brand-symbol"><i
+                            class="bi bi-life-preserver"></i></span><span><strong>EduSupport</strong><small>Support
+                            operations</small></span></a>
+                <button id="sidebarClose" class="sidebar-close d-lg-none" aria-label="Close navigation"><i
+                        class="bi bi-x-lg"></i></button>
+                <nav class="sidebar-nav" aria-label="Main navigation">
+                    <span class="nav-section-label">Workspace</span>
+                    <a href="#dashboard" class="sidebar-link" data-route="dashboard"><i
+                            class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+                    <a href="#tickets" class="sidebar-link" data-route="tickets"><i class="bi bi-inbox-fill"></i><span
+                            id="ticketsNavLabel">My tickets</span><b id="ticketsNavCount"
+                            class="nav-count d-none"></b></a>
+                    <a href="#create" class="sidebar-link student-staff-only" data-route="create"><i
+                            class="bi bi-plus-circle-fill"></i><span>Create ticket</span></a>
+                    <a href="#pending" class="sidebar-link" data-route="pending"><i
+                            class="bi bi-hourglass-split"></i><span>Pending actions</span><b id="pendingNavCount"
+                            class="nav-count d-none"></b></a>
+                    <span class="nav-section-label nav-section-spaced">Manage</span>
+                    <a href="#reports" class="sidebar-link admin-only" data-route="reports"><i
+                            class="bi bi-bar-chart-fill"></i><span>Reports</span></a>
+                    <a href="#profile" class="sidebar-link" data-route="profile"><i
+                            class="bi bi-person-fill"></i><span>Profile</span></a>
+                </nav>
+            </div>
+            <div class="sidebar-bottom">
+                <div class="system-status"><span class="status-pulse"></span><span>All systems operational</span></div>
+                <button id="logoutButton" class="sidebar-logout"><i class="bi bi-box-arrow-left"></i><span>Sign
+                        out</span></button>
+            </div>
+        </aside>
+        <div id="sidebarBackdrop" class="sidebar-backdrop d-lg-none"></div>
+        <main class="main-area">
+            <header class="topbar">
+                <div class="d-flex align-items-center gap-3"><button id="sidebarToggle" class="icon-btn d-lg-none"
+                        aria-label="Open navigation"><i class="bi bi-list"></i></button>
+                    <div><span id="topbarKicker" class="eyebrow">Operations desk</span>
+                        <h1 id="pageTitle">Dashboard</h1>
+                    </div>
+                </div>
+                <div class="topbar-actions"><button id="refreshButton" class="icon-btn" title="Refresh data"
+                        aria-label="Refresh data"><i class="bi bi-arrow-clockwise"></i></button><button
+                        class="icon-btn notification-btn" title="Notifications" aria-label="Notifications"><i
+                            class="bi bi-bell"></i><span></span></button>
+                    <div class="topbar-user">
+                        <div id="userAvatar" class="avatar avatar-brand">DS</div>
+                        <div class="topbar-user-copy"><strong id="userName">Demo User</strong><small
+                                id="userRole">Student</small></div><i class="bi bi-chevron-down topbar-chevron"></i>
+                    </div>
+                </div>
+            </header>
+            <div id="pageContent" class="page-content" tabindex="-1"></div>
+        </main>
+    </div>
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-surface">
+                <div class="modal-header border-0">
+                    <div class="modal-icon modal-icon-warning"><i class="bi bi-exclamation-triangle"></i></div><button
+                        type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <h3 id="confirmTitle">Are you sure?</h3>
+                    <p id="confirmMessage" class="text-muted"></p>
+                </div>
+                <div class="modal-footer border-0"><button type="button" class="btn btn-light"
+                        data-bs-dismiss="modal">Cancel</button><button type="button" id="confirmAction"
+                        class="btn btn-brand">Confirm</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

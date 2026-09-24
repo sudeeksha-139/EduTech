@@ -1,0 +1,28 @@
+spring:
+  config:
+    import: optional:classpath:application-security.yml
+  application:
+    name: edusupport-api
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/edusupport}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: ${PORT:8080}
+
+frontend:
+  allowed-origins: ${FRONTEND_ALLOWED_ORIGINS:http://localhost:4173}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
