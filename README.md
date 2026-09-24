@@ -206,6 +206,51 @@ Get-ChildItem frontend -Filter *.js -Recurse | ForEach-Object { node --check $_.
 
 ## Known limitations
 
+
+## 📸 Project Screenshots
+
+### 🔐 Login
+![Login Page](screenshots/Login-Page.png)
+
+### 🎓 Student Module
+
+#### Student Dashboard
+![Student Dashboard](screenshots/Student_Dashboard.png)
+
+#### Create Ticket
+![Create Ticket](screenshots/Student-Create-Ticket.png)
+
+#### Student Profile
+![Student Profile](screenshots/Student_Profile.png)
+
+### 👨‍💼 Staff Module
+
+#### Staff Login
+![Staff Login](screenshots/Staff-Login.png)
+
+#### Staff Dashboard
+![Staff Dashboard](screenshots/Staff-Dashboard.png)
+
+#### Assigned Tickets
+![Staff Assigned Tickets](screenshots/Staff-Assigned-Tickets.png)
+
+### 🏢 Admin Module
+
+#### Admin Dashboard
+![Admin Dashboard](screenshots/Admin-Dashboard.png)
+
+#### All Tickets
+![All Tickets](screenshots/Admin-All-Tickets.png)
+
+#### Pending Actions
+![Admin Pending Actions](screenshots/Admin-Pending-action.png)
+
+#### Management Reports
+![Management Reports](screenshots/Admin-Reports.png)
+
+#### Admin Profile
+![Admin Profile](screenshots/Admin-Profile.png)
+
 - Final review did not run an authenticated Playwright credential flow.
 - Final review did not run a real-MySQL integration test.
 - Resolution stores status and timestamps but does not yet include a resolution summary/code field.
